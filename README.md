@@ -42,5 +42,5 @@ and unnecessary sentences in order to increase the word count.
   - [ ] Build frontend in docker
   
   
-  ## TL;DR
-  I do not like essays
+## TL;DR
+I do not like essays
