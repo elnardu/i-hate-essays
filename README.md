@@ -1,1 +1,1 @@
-# i-hate-essays
+# I hate essays
