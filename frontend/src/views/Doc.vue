@@ -2,7 +2,13 @@
   <div class="container-fluid" id="main">
     <div class="row">
       <div class="col-3 pt-4 pl-4">
-        <PredictionButton v-for="(text, i) in predictions" :text="text" :number="i" :key="i" @click="prediction_click"/>
+        <PredictionButton
+          v-for="(text, i) in predictions"
+          :text="text"
+          :number="i"
+          :key="i"
+          @click="prediction_click"
+        />
       </div>
       <div class="col-9 p-4 pl-1">
         <textarea id="main-text"></textarea>
@@ -13,9 +19,12 @@
 
 <script>
 import SimpleMDE from "simplemde";
+import io from "socket.io-client";
 
 import PredictionButton from "@/components/PredictionButton";
 import register_shortcuts from "@/keyboard_shortcuts.js";
+import preprocess_text from "@/preprocess_text.js"
+
 
 export default {
   components: {
@@ -29,7 +38,8 @@ export default {
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "lolkek",
         "hahahah"
-      ]
+      ],
+      socket: io()
     };
   },
   mounted() {
@@ -47,6 +57,11 @@ export default {
     });
 
     console.log(this.simplemde_obj);
+
+    this.simplemde_obj.codemirror.on("change", this.text_changed);
+    this.simplemde_obj.codemirror.on("cursorActivity", this.text_changed);
+
+    this.socket.on("update_predictions", this.update_predictions);
   },
   methods: {
     handle_shortcut(number) {
@@ -59,6 +74,12 @@ export default {
     },
     prediction_click(number) {
       this.append_text_at_cursor(this.predictions[number]);
+    },
+    text_changed() {
+      this.socket.emit('text_change', preprocess_text(this.simplemde_obj.codemirror));
+    },
+    update_predictions(predictions) {
+      this.predictions = predictions;
     }
   }
 };
