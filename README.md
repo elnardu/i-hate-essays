@@ -21,6 +21,7 @@ and unnecessary sentences in order to increase the word count.
   - [ ] Add proper routes 
   - [ ] Auth 
   - [ ] Add docs view (we need this for db req)
+  - [ ] Add about view
 - Backend
   - [ ] Auth (including socket.io)
   - [ ] User schema
