@@ -23,8 +23,8 @@ import io from "socket.io-client";
 
 import PredictionButton from "@/components/PredictionButton";
 import register_shortcuts from "@/keyboard_shortcuts.js";
-import preprocess_text from "@/preprocess_text.js"
-
+import preprocess_text from "@/preprocess_text.js";
+import debounce from "@/debounce";
 
 export default {
   components: {
@@ -58,6 +58,8 @@ export default {
 
     console.log(this.simplemde_obj);
 
+    this.text_changed = debounce(this.text_changed, 250);
+
     this.simplemde_obj.codemirror.on("change", this.text_changed);
     this.simplemde_obj.codemirror.on("cursorActivity", this.text_changed);
 
@@ -76,7 +78,10 @@ export default {
       this.append_text_at_cursor(this.predictions[number]);
     },
     text_changed() {
-      this.socket.emit('text_change', preprocess_text(this.simplemde_obj.codemirror));
+      this.socket.emit(
+        "text_change",
+        preprocess_text(this.simplemde_obj.codemirror)
+      );
     },
     update_predictions(predictions) {
       this.predictions = predictions;
