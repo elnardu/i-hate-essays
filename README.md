@@ -41,6 +41,9 @@ and unnecessary sentences in order to increase the word count.
   - [ ] Serve static using nginx
   - [ ] Build frontend in docker
   
-  
+## Screenshot
+![](screenshots/screenshot1.png)
+
+
 ## TL;DR
 I do not like essays
