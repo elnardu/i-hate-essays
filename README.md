@@ -4,8 +4,8 @@
 1. Elnard Utiushev (eutiushe@purdue.edu)
 
 ## Description
-This tool is suppose to help people like me, who often get stuck while writing 
-an essay by providing smart autocomplete. It is also suppose help writing long
+This tool is supposed to help people like me, who often get stuck while writing 
+an essay by providing smart autocomplete. It is also supposed to help writing long
 and unnecessary sentences in order to increase the word count.
 
 ## Technologies
@@ -40,3 +40,7 @@ and unnecessary sentences in order to increase the word count.
   - [ ] Docker and docker-compose setup
   - [ ] Serve static using nginx
   - [ ] Build frontend in docker
+  
+  
+  ## TL;DR
+  I do not like essays
