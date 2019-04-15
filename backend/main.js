@@ -35,7 +35,7 @@ io.on('connection', handleSocketIoConnection);
 // 	res.sendFile(path.join(__dirname, '/dist', '/index.html'));
 // });
 
-const PORT = process.env.PORT || config.dev.port;
+const PORT = process.env.PORT;
 server.listen(PORT);
 console.log("Started on port " + PORT);
 
