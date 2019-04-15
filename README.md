@@ -28,14 +28,15 @@ and unnecessary sentences in order to increase the word count.
   - [ ] Doc schema
   - [ ] Docs schema
 - Prediction Service
-  - [ ] Setup flask
-  - [ ] Write an interface for prediction modules
+  - [X] Setup flask
+  - [X] Write an interface for prediction modules
   - [ ] Create an api
   - Prediction
     - [ ] GPT-2 
     - Markov chain
+      - [ ] Find a dataset of books
       - [ ] Find/create a dataset of essays
-      - [ ] Train a markov chain  
+      - [ ] Cache a markov chain  
 - Other
   - [ ] Docker and docker-compose setup
   - [ ] Serve static using nginx
