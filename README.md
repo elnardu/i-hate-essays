@@ -35,6 +35,7 @@ and unnecessary sentences in order to increase the word count.
   - Prediction
     - [ ] GPT-2 
     - Markov chain
+      - [X] Basic implementation
       - [ ] Find a dataset of books
       - [ ] Find/create a dataset of essays
       - [ ] Cache a markov chain  
