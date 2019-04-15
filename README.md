@@ -2,6 +2,7 @@
 
 ## Team
 1. Elnard Utiushev (eutiushe@purdue.edu)
+2. Luke Gregurich (lgreguri@purdue.edu)
 
 ## Description
 This tool is supposed to help people like me, who often get stuck while writing 
