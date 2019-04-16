@@ -1,14 +1,12 @@
 from os import path
 
-import markovify
-
 from . import Predictor
 
 CORPUS_PATH = path.join(path.dirname(path.abspath(
     __file__)), 'markov', 'asap-aes-corpus.txt')
 
 
-class MarkovPredictor(Predictor):
+class GPT2Predictor(Predictor):
     def __init__(self):
         self.state_size = 2
 
@@ -44,4 +42,4 @@ class MarkovPredictor(Predictor):
             return None
 
     def get_name(self):
-        return "Markov Chain"
+        return "GPT-2"

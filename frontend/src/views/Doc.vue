@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-3 pt-4 pl-4">
         <PredictionButton
-          v-for="(text, i) in predictions"
-          :text="text"
+          v-for="(obj, i) in predictions"
+          :prediction_obj="obj"
           :number="i"
           :key="i"
           @click="prediction_click"
@@ -33,12 +33,7 @@ export default {
   data() {
     return {
       simplemde_obj: null,
-      predictions: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "lolkek",
-        "hahahah"
-      ],
+      predictions: [],
       socket: io()
     };
   },
@@ -67,7 +62,7 @@ export default {
   },
   methods: {
     handle_shortcut(number) {
-      this.append_text_at_cursor(this.predictions[number]);
+      this.append_text_at_cursor(this.predictions[number].text);
     },
     append_text_at_cursor(text) {
       let doc = this.simplemde_obj.codemirror.getDoc();
@@ -75,7 +70,7 @@ export default {
       doc.replaceRange(text, cursor);
     },
     prediction_click(number) {
-      this.append_text_at_cursor(this.predictions[number]);
+      this.append_text_at_cursor(this.predictions[number].text);
     },
     text_changed() {
       this.socket.emit(

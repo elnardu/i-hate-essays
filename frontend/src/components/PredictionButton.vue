@@ -1,8 +1,9 @@
 <template>
   <button class="mb-2 p-2 border rounded" id="button" @click="click">
-    {{text}}
+    {{prediction_obj.text}}
     
     <div class="shortcut text-monospace text-muted mt-2 pt-2">
+      {{prediction_obj.predictor}} |
       CTRL+{{number + 1}}
     </div>
   </button>
@@ -10,7 +11,7 @@
 
 <script>
 export default {
-  props: ["text", "number"],
+  props: ["prediction_obj", "number"],
   methods: {
     click() {
       this.$emit("click", this.number);

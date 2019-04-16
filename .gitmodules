@@ -1,0 +1,3 @@
+[submodule "prediction_service/prediction_service/predictors/gpt-2-Pytorch"]
+	path = prediction_service/prediction_service/predictors/gpt-2-Pytorch
+	url = https://github.com/graykode/gpt-2-Pytorch.git
