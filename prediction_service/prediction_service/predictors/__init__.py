@@ -12,8 +12,9 @@ class Predictor:
 
 
 from .markov import MarkovPredictor
+from .gpt_2 import GPT2Predictor
 
-ACTIVE_PREDICTORS = [MarkovPredictor]
+ACTIVE_PREDICTORS = [MarkovPredictor, GPT2Predictor]
 
 class PredictorManager:
     def __init__(self):
