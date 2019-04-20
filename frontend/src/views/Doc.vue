@@ -17,6 +17,7 @@
   </div>
 </template>
 
+
 <script>
 import SimpleMDE from "simplemde";
 import io from "socket.io-client";
