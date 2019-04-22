@@ -20,14 +20,21 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#docs">News</a>
-      <a href="#docs">My Documents</a>
-      <a href="#about">About</a>
+      <a class="active" href="../src/views/Home.vue">Home</a>
+      <a href="#news" onclick="myFunction()">News</a>
+      <a href="../src/views/Doc.vue">My Documents</a>
+      <a href="../src/views/About.vue">About</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
+
+    <li class="nav-item"></li>
+      <router-link class="nav-link"  to="../src/views/Doc.vue">Blog</router-link>
+
+    <a id="github-button" class="btn btn-block btn-social btn-github">
+      <i class="fa fa-github"></i> Sign in with Github
+    </a>
 
     <form action="action_page.php">
       <div class="imgcontainer">
