@@ -54,7 +54,7 @@
 
       /* Set a style for all buttons */
       button {
-        background-color: #4CAF50;
+        background-color: rgb(241, 134, 46);
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
@@ -132,7 +132,7 @@
 
     <form action="action_page.php">
       <div class="imgcontainer">
-        <img src="img_avatar2.png" alt="I Hate Essays" class="avatar">
+        <img src="img_avatar2.png" alt="I Hate Essays - Login" class="avatar">
       </div>
     
       <div class="container">
@@ -152,7 +152,30 @@
       </div>
     </form>
 
-      
+    <form action="action_page.php">
+      <div class="imgcontainer">
+        <img src="img_avatar2.png" alt="I Hate Essays - Sign-up" class="avatar">
+      </div>
+    
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+    
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+        
+        <label for="psw"><b>Confirm Password</b></label>
+        <input type="password" placeholder="Retype Password" name="psw" required>
+
+        <button type="submit">Sign Up</button>
+        
+      </div>
+    
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
 
   <script src="main.js"></script>
   </body>
