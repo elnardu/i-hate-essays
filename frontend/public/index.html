@@ -8,12 +8,52 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <title>I hate essays</title>
+
+    <style>
+      ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+      }
+      
+      li {
+          float: right;
+      }
+      
+      li a {
+          display: inline-block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      }
+      
+      li a:hover {
+          background-color: rgb(128, 122, 122);
+      }
+      
+      .log {
+          background-color: rgb(90, 112, 209);
+      }
+      </style>
   </head>
   <body>
-    <noscript>
+    <!-- <noscript>
       <strong>We're sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+    </noscript> -->
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <ul>
+      <li><a href="#log" class="log">Login</a></li>
+      <li><a href="#docs">My Documents</a></li>
+      <li><a href="#About">About</a></li>
+      <li><a href="#home">Home</a></li>
+    </ul>
+
+  
+
+  <script src="router.js"></script>
   </body>
 </html>
