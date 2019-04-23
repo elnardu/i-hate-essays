@@ -4,11 +4,11 @@
       <img src="../assets/hateEssays.png" width="80" height="80">
         
       <a class="navbar-brand" href="#home">
-        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30"  alt="">
+        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" onClick= {Home}>
         Home
       </a>
       <a class="navbar-brand" href="#docs">
-        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" onClick= {Docs}>
         My Documents
       </a>
       <button class="btn btn-primary btn-lg float-right" onClick= {Logout}>Logout</button>
@@ -20,11 +20,19 @@
 export default {
   Logout(){
 
+  },
+  Home(){
+
+  },
+  Docs(){
+    
   }
 };
 </script>
 
 <style scoped>
+
+/* Style of nav bar */
 .topnav a {
   float: left;
   color: #000000;
@@ -48,8 +56,5 @@ color: white;
 
 button:hover {
     opacity: 0.75;
-}
-.navbar {
-
 }
 </style>
