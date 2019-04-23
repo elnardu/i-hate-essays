@@ -3,14 +3,17 @@
     <nav class="navbar navbar-light bg-light">
       <img src="../assets/hateEssays.png" width="200" height="80">
         
-      <a class="navbar-brand" href="#home">
+      <!-- <a class="navbar-brand" href="#" to="/">
         <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" onClick= {Home}>
         Home
       </a>
-      <a class="navbar-brand" href="#docs">
+      <a class="navbar-brand" href="#docs" to="/docs" exact>
         <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" onClick= {Docs}>
         My Documents
-      </a>
+      </a> -->
+      <router-link tag="li" class="navbar-brand" class-active="active" to="/" exact>Home</router-link>
+      <router-link tag="li" class="navbar-brand" class-active="active" to="/docs" exact>My Documents</router-link>
+
       <button class="btn btn-primary btn-lg float-right" onClick= {Logout}>Logout</button>
     </nav>
   </div>
@@ -40,19 +43,29 @@ export default {
   padding: 16px 16px;
   text-decoration: none;
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-/* Change the color of links on hover */
+
+nav li {
+  padding: 16px 16px; 
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+nav li:hover, nav li:active{
+  background-color: #ddd;
+  cursor: pointer;    
+}
+
+
+/* Change the color of links on hover
 .topnav a:hover {
 background-color: #ddd;
 color: black;
 }
-
-/* Add a color to the active/current link */
 .topnav a.active {
-/* background-color: rgb(241, 134, 46); */
+background-color: rgb(241, 134, 46);
 color: white;
-}
+} */
 
 button:hover {
     opacity: 0.75;
