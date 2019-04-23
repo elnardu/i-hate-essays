@@ -9,7 +9,7 @@
     <p class="card-text">
       <div v-for="doc in documents">{{doc.preview}}</div>
     </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn btn-primary">Open</a>
   </div>
 
 </div>
