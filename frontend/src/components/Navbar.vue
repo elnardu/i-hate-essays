@@ -1,7 +1,7 @@
 <template>
   <div class="topnav">    
     <nav class="navbar navbar-light bg-light">
-      <img src="../assets/hateEssays.png" width="80" height="80">
+      <img src="../assets/hateEssays.png" width="200" height="80">
         
       <a class="navbar-brand" href="#home">
         <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" onClick= {Home}>
@@ -25,7 +25,7 @@ export default {
 
   },
   Docs(){
-    
+
   }
 };
 </script>
@@ -57,4 +57,9 @@ color: white;
 button:hover {
     opacity: 0.75;
 }
+
+button {
+  margin-right: 1em;
+}
 </style>
+
