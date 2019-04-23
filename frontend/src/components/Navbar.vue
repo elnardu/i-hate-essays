@@ -53,7 +53,9 @@ nav li {
 }
 nav li:hover, nav li:active{
   background-color: #ddd;
-  cursor: pointer;    
+  text-decoration-color: white;
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 
