@@ -75,7 +75,7 @@ passport.use(new GitHubStrategy({
         let user = new User({
           github_id: profile.id,
           name: profile.displayName,
-          email: profile.emails[0].value
+          email: profile.emails ?  profile.emails[0].value : null
         });
         user.save();
         console.log(user);
