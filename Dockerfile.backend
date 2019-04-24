@@ -16,7 +16,7 @@ ADD backend/package.json /srv/backend/package.json
 ADD backend/yarn.lock /srv/backend/yarn.lock
 RUN cd /srv/backend && yarn install
 ADD backend /srv/backend/
-COPY --from=build-frontend-static /srv/frontend/dist /srv/backend/
+COPY --from=build-frontend-static /srv/frontend/dist /srv/backend/dist
 
 WORKDIR /srv/backend
 
