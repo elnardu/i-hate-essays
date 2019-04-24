@@ -3,7 +3,8 @@ const morgan = require('morgan'),
   mongoose = require('mongoose'),
   app = require('express')(),
   server = require('http').Server(app),
-  io = require('socket.io')(server);
+  io = require('socket.io')(server),
+  express = require('express');
 
 require('dotenv').config();
 
@@ -133,6 +134,14 @@ function ensureAuth(req, res, next) {
 // Backend API routes
 const api_router = require('./routes/api.js');
 app.use('/api', ensureAuth, api_router);
+
+// Frontend endpoints
+app.use(express.static(__dirname + "/dist"));
+app.use('/', express.static(__dirname + "/dist"));
+// Catch all for frontend routes
+app.all('/*', function(req, res) {
+	res.sendFile(path.join(__dirname, '/dist', '/index.html'));
+});
 
 
 const PORT = process.env.PORT;
