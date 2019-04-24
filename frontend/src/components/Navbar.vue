@@ -1,6 +1,6 @@
 <template>
-  <nav id="navb" class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top">
-    <img src="../assets/hateEssays.png" width="200" height="80">
+  <nav id="navb" class="navbar navbar-expand navbar-dark bg-dark">
+    <!-- <img src="../assets/hateEssays.png" width="200" height="80">
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -9,23 +9,35 @@
             <li class="nav-item">
                 <a class="nav-link" href="#/docs">My Documents</a>
             </li>
-            <button id="logoutbtn" class="btn btn-primary btn-lg float-right" onClick= {Logout}>Logout</button>
+            <button id="logoutbtn" class="btn btn-primary btn-lg float-right">Logout</button>
         </ul>
-    </div>
+    </div>-->
+
+    <router-link class="navbar-brand" to="/">I HATE ESSAYS</router-link>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <router-link class="nav-link" to="/" active-class="active" :exact="true">Home</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link class="nav-link" to="/docs" active-class="active" :exact="true">My Documents</router-link>
+      </li>
+      <li class="nav-item" v-if="!$store.getters.isAuthenticated">
+        <a class="nav-link" href="/auth/github">Login using GitHub</a>
+      </li>
+      <li class="nav-item" v-else>
+        <a class="nav-link" href="/auth/logout">Logout</a>
+      </li>
+    </ul>
   </nav>
 </template>
 
 <script>
-export default {
-  Logout(){
-
-  },
-};
+export default {};
 </script>
 
 <style scoped>
 /* Style of nav bar */
-.topnav a {
+/* .topnav a {
   float: left;
   color: #000000;
   text-align: center;
@@ -59,6 +71,6 @@ button {
   margin-bottom: 0.3em;
   margin-left: 1em;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
+} */
 </style>
 

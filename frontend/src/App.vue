@@ -26,6 +26,6 @@ export default {
 }
 
 .view-container {
-  height: 90%;
+  height: calc(100% - 16px);
 }
 </style>

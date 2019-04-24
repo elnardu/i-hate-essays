@@ -15,6 +15,9 @@ function mount_app() {
   }).$mount('#app')
 }
 
+console.log("Wow! What is this magic?");
+console.log("Give me high five next time you see me!");
+
 axios.get('/auth/me').then((res) => {
   if (res.data.success) {
     store.commit('login', res.data.name)

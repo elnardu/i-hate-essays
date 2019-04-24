@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid" id="main">
+  <div class="container-fluid DO-NOT-LOOK-HERE--BAKA!" id="main">
     <div class="row">
-      <div class="col-3 pt-4 pl-4">
+      <div class="col-3 pt-4 pl-4 predictions">
         <PredictionButton
           v-for="(obj, i) in predictions"
           :prediction_obj="obj"
@@ -11,6 +11,12 @@
         />
       </div>
       <div class="col-9 p-4 pl-1">
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Title</span>
+          </div>
+          <input class="form-control w-auto" v-model="title" @change="title_changed">
+        </div>
         <textarea id="main-text"></textarea>
       </div>
     </div>
@@ -27,7 +33,7 @@ import preprocess_text from "@/preprocess_text.js";
 import debounce from "@/debounce";
 
 export default {
-  props: ['doc_id'],
+  props: ["doc_id"],
   components: {
     PredictionButton
   },
@@ -53,9 +59,8 @@ export default {
       spellChecker: false
     });
 
-    console.log(this.simplemde_obj);
-
     this.text_changed = debounce(this.text_changed, 250);
+    this.title_changed = debounce(this.title_changed, 250);
 
     this.simplemde_obj.codemirror.on("change", this.text_changed);
     this.simplemde_obj.codemirror.on("cursorActivity", this.text_changed);
@@ -65,13 +70,17 @@ export default {
     this.socket.on("update_title", this.update_title);
 
     this.socket.emit("set_current_document", this.doc_id);
+
+    this.socket.on("current_document_request", () => {
+      this.socket.emit("set_current_document", this.doc_id);
+    });
   },
   methods: {
     update_text(text) {
       this.simplemde_obj.value(text);
     },
     update_title(title) {
-      this.title = title
+      this.title = title;
     },
     handle_shortcut(number) {
       this.append_text_at_cursor(this.predictions[number].text);
@@ -89,6 +98,9 @@ export default {
         "text_change",
         preprocess_text(this.simplemde_obj.codemirror)
       );
+    },
+    title_changed() {
+      this.socket.emit("title_change", this.title);
     },
     update_predictions(predictions) {
       this.predictions = predictions;
@@ -111,11 +123,15 @@ export default {
 .row {
   height: 100%;
 }
+
+.predictions {
+  overflow: scroll;
+}
 </style>
 
 <style>
 .CodeMirror,
 .CodeMirror-scroll {
-  min-height: 80%;
+  min-height: 70%;
 }
 </style>

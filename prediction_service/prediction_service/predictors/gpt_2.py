@@ -86,7 +86,8 @@ class GPT2Predictor(Predictor):
         print(context_tokens)
 
         generated = 0
-        for _ in range(2 // self.batch_size):
+        response = []
+        for _ in range(3 // self.batch_size):
             out = sample_sequence(
                 model=self.model, length=self.length,
                 context=context_tokens,
@@ -102,8 +103,9 @@ class GPT2Predictor(Predictor):
                 print("=" * 40 + " SAMPLE " +
                         str(generated) + " " + "=" * 40)
                 print(text)
-            return [text]
-        pass
+                response.append(text)
+        
+        return response
 
     def get_name(self):
         return "GPT-2"

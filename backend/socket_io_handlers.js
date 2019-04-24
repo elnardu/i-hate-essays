@@ -56,18 +56,30 @@ module.exports = function (socket) {
 
   let current_document;
 
+  socket.emit('current_document_request');
+
   socket.on('set_current_document', (doc_id) => {
     // TODO: validate document owner
 
     Doc.findById(doc_id).then((doc) => {
       current_document = doc;
       socket.emit('update_text', doc.text);
+      socket.emit('update_title', doc.title);
       console.log(doc)
     })
   })
 
+  socket.on('title_change', (new_title) => {
+    if (!change || !current_document) return;
+    
+    current_document.title = new_title;
+    current_document.save();
+  })
+
   var currentChange = null;
   socket.on('text_change', (change) => {
+    if (!change || !current_document) return;
+
     let new_predictions = [];
     currentChange = change;
 
