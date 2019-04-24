@@ -29,12 +29,18 @@ if (process.env.NODE_ENV == 'development') {
 const DATABASE = process.env.MONGODB_URI;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(DATABASE, { useNewUrlParser: true })
-  .then(res => {
-    console.log('Connected to MongoDB: ' + DATABASE);
-  }).catch(err => {
-    console.log('Error connecting to MongoDB: ' + err);
-  });
+
+
+var connectWithRetry = function () {
+  mongoose.connect(DATABASE, { useNewUrlParser: true })
+    .then(res => {
+      console.log('Connected to MongoDB: ' + DATABASE);
+    }).catch(err => {
+      console.log('Error connecting to MongoDB: ' + err);
+      setTimeout(connectWithRetry, 5000);
+    });
+};
+connectWithRetry();
 
 const session = require('express-session'),
   MongoStore = require('connect-mongo')(session),
@@ -140,8 +146,8 @@ app.use('/api', ensureAuth, api_router);
 app.use(express.static(__dirname + "/dist"));
 app.use('/', express.static(__dirname + "/dist"));
 // Catch all for frontend routes
-app.all('/*', function(req, res) {
-	res.sendFile(path.join(__dirname, '/dist', '/index.html'));
+app.all('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '/dist', '/index.html'));
 });
 
 
