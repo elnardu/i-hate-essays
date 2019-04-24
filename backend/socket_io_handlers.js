@@ -70,7 +70,7 @@ module.exports = function (socket) {
   })
 
   socket.on('title_change', (new_title) => {
-    if (!change || !current_document) return;
+    if (!new_title || !current_document) return;
     
     current_document.title = new_title;
     current_document.save();
