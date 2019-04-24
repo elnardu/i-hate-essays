@@ -1,22 +1,18 @@
 <template>
-  <div class="topnav">    
-    <nav class="navbar navbar-light bg-light">
-      <img src="../assets/hateEssays.png" width="200" height="80">
-        
-      <!-- <a class="navbar-brand" href="#" to="/">
-        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" onClick= {Home}>
-        Home
-      </a>
-      <a class="navbar-brand" href="#docs" to="/docs" exact>
-        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" onClick= {Docs}>
-        My Documents
-      </a> -->
-      <router-link tag="li" class="navbar-brand" class-active="active" to="/" exact>Home</router-link>
-      <router-link tag="li" class="navbar-brand" class-active="active" to="/docs" exact>My Documents</router-link>
-
-      <button class="btn btn-primary btn-lg float-right" onClick= {Logout}>Logout</button>
-    </nav>
-  </div>
+  <nav id="navb" class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top">
+    <img src="../assets/hateEssays.png" width="200" height="80">
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#/docs">My Documents</a>
+            </li>
+            <button id="logoutbtn" class="btn btn-primary btn-lg float-right" onClick= {Logout}>Logout</button>
+        </ul>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -28,7 +24,6 @@ export default {
 </script>
 
 <style scoped>
-
 /* Style of nav bar */
 .topnav a {
   float: left;
@@ -39,7 +34,6 @@ export default {
   font-size: 20px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
 nav li {
   padding: 16px 16px; 
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -53,23 +47,18 @@ nav li:hover, nav li:active{
   transition-duration: 0.5s;
 }
 
-
-/* Change the color of links on hover
-.topnav a:hover {
-background-color: #ddd;
-color: black;
+#navb:hover {
+  color: transparent;
 }
-.topnav a.active {
-background-color: rgb(241, 134, 46);
-color: white;
-} */
-
 button:hover {
     opacity: 0.75;
 }
-
 button {
-  margin-right: 1em;
+  margin-right: 0.8em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  margin-left: 1em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 </style>
 
