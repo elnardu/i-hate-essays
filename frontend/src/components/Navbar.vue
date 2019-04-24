@@ -14,7 +14,7 @@
       <router-link tag="li" class="navbar-brand" class-active="active" to="/" exact>Home</router-link>
       <router-link tag="li" class="navbar-brand" class-active="active" to="/docs" exact>My Documents</router-link>
 
-      <button class="btn btn-primary btn-lg float-right" onClick= {Logout}>Logout</button>
+      <button class="btn btn-primary btn-lg float-right" onClick={Logout}>Logout</button>
     </nav>
   </div>
 </template>

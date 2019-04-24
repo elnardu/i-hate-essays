@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const User = require('./models/User');
+const User = require('./models/User'),
+  Doc = require('./models/Doc');
 
 const prediction_service_endpoint = process.env.PREDICTION_SERVICE_ENDPOINT;
 
@@ -40,17 +41,30 @@ module.exports = function (socket) {
   console.log(socket.handshake.session);
   if (!socket.handshake.session.passport || !socket.handshake.session.passport.user) {
     socket.disconnect();
+    console.log('No auth. Disconnecting')
     return;
   }
 
   let current_user;
 
-  User.findById(socket.handshake.session.passport.user, function (err, user) {
+  User.findById(socket.handshake.session.passport.user).then((user) => {
     current_user = user;
   }).catch((err) => {
     console.error(err);
     socket.disconnect();
   });
+
+  let current_document;
+
+  socket.on('set_current_document', (doc_id) => {
+    // TODO: validate document owner
+
+    Doc.findById(doc_id).then((doc) => {
+      current_document = doc;
+      socket.emit('update_text', doc.text);
+      console.log(doc)
+    })
+  })
 
   var currentChange = null;
   socket.on('text_change', (change) => {
@@ -65,5 +79,8 @@ module.exports = function (socket) {
         socket.emit('update_predictions', new_predictions);
       }
     });
+
+    current_document.text = change.text;
+    current_document.save();
   })
 } 

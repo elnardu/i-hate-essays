@@ -122,7 +122,10 @@ app.get('/auth/logout', (req, res) => {
 
 function ensureAuth(req, res, next) {
   if (!req.isAuthenticated || !req.isAuthenticated()) {
-    return res.redirect('/');
+    res.status(401);
+    return res.json({
+      'success': false
+    });
   }
   next();
 }

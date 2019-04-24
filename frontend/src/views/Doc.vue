@@ -27,6 +27,7 @@ import preprocess_text from "@/preprocess_text.js";
 import debounce from "@/debounce";
 
 export default {
+  props: ['doc_id'],
   components: {
     PredictionButton
   },
@@ -34,7 +35,8 @@ export default {
     return {
       simplemde_obj: null,
       predictions: [],
-      socket: io()
+      socket: io(),
+      title: ""
     };
   },
   mounted() {
@@ -59,8 +61,18 @@ export default {
     this.simplemde_obj.codemirror.on("cursorActivity", this.text_changed);
 
     this.socket.on("update_predictions", this.update_predictions);
+    this.socket.on("update_text", this.update_text);
+    this.socket.on("update_title", this.update_title);
+
+    this.socket.emit("set_current_document", this.doc_id);
   },
   methods: {
+    update_text(text) {
+      this.simplemde_obj.value(text);
+    },
+    update_title(title) {
+      this.title = title
+    },
     handle_shortcut(number) {
       this.append_text_at_cursor(this.predictions[number].text);
     },

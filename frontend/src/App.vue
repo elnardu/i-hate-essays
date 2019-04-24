@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navbar/>
-    <router-view/>
+    <div class="view-container">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -21,5 +23,9 @@ export default {
   height: 100vh;
   padding: 0;
   margin: 0;
+}
+
+.view-container {
+  height: 90%;
 }
 </style>

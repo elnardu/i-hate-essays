@@ -3,10 +3,25 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import axios from 'axios'
+
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+function mount_app() {
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+}
+
+axios.get('/auth/me').then((res) => {
+  if (res.data.success) {
+    store.commit('login', res.data.name)
+  } else {
+    store.commit('logout')
+  }
+  mount_app()
+})
+
+
