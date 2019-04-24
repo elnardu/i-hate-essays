@@ -18,13 +18,13 @@
       <li class="nav-item">
         <router-link class="nav-link" to="/" active-class="active" :exact="true">Home</router-link>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if="$store.getters.isAuthenticated">
         <router-link class="nav-link" to="/docs" active-class="active" :exact="true">My Documents</router-link>
       </li>
       <li class="nav-item" v-if="!$store.getters.isAuthenticated">
         <a class="nav-link" href="/auth/github">Login using GitHub</a>
       </li>
-      <li class="nav-item" v-else>
+      <li class="nav-item" v-if="$store.getters.isAuthenticated">
         <a class="nav-link" href="/auth/logout">Logout</a>
       </li>
     </ul>

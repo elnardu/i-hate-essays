@@ -8,9 +8,15 @@
             <p class="card-text">{{doc.preview}}...</p>
             <!-- <p class="card-text">
               <small class="text-muted">Last updated 3 mins ago</small>
-            </p> -->
+            </p>-->
           </div>
         </router-link>
+        <div class="card">
+          <buttton
+            class="btn btn btn-primary btn-lg w-100 h-100"
+            @click="create_new_doc"
+          >Add new document</buttton>
+        </div>
       </div>
     </div>
   </div>
@@ -29,11 +35,18 @@ export default {
     axios
       .get("/api/getDocuments")
       .then(res => {
-        this.documents = res.data
+        this.documents = res.data;
       })
-      .catch(err => {
-        
+      .catch(err => {});
+  },
+  methods: {
+    create_new_doc() {
+      axios.post("/api/createNewDocument").then(res => {
+        if (res.data.id) {
+          this.$router.push("/doc/" + res.data.id);
+        }
       });
+    }
   }
 };
 </script>
