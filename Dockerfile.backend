@@ -15,7 +15,9 @@ ENV NODE_ENV=production
 ADD backend/package.json /srv/backend/package.json
 ADD backend/yarn.lock /srv/backend/yarn.lock
 RUN cd /srv/backend && yarn install
-ADD backend/* /srv/backend/
+ADD backend /srv/backend/
 COPY --from=build-frontend-static /srv/frontend/dist /srv/backend/
 
-CMD [ "node", "/srv/backend/main.js" ]
+WORKDIR /srv/backend
+
+CMD [ "node", "main.js" ]

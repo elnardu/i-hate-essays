@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  prediction:
+    build:
+      context: .
+      dockerfile: Dockerfile.prediction_service
+
+  mongodb:
+    image: mongo:4.0.9
+    environment:
+        - MONGO_INITDB_ROOT_USERNAME=root
+        - MONGO_INITDB_ROOT_PASSWORD=YOUR_PASS
+    ports:
+      - "27017:27017"
+    volumes:
+      - "./mongo_data:/data/db"
+
+  node-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+
+    depends_on:
+      - mongodb
+      - prediction
+
+    ports:
+      - "80:80"
+
+    environment:
+      - PORT=80
+      - SECRET=176381623716
+      - MONGODB_URI=mongodb://root:YOUR_PASS@mongodb:27017/ihateessays
+      - PREDICTION_SERVICE_ENDPOINT=http://prediction:8080
+      - GITHUB_CLIENT_ID=
+      - GITHUB_CLIENT_SECRET=
+      - GITHUB_CALLBACK_URL=

@@ -1,0 +1,17 @@
+# FROM python:3.7.3-alpine3.9
+FROM continuumio/miniconda3
+
+WORKDIR /srv/
+
+RUN conda install -c anaconda numpy
+# RUN pip3 install https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp37-cp37m-linux_x86_64.whl
+RUN conda install pytorch-cpu torchvision-cpu -c pytorch
+RUN conda install -c conda-forge regex
+ADD prediction_service/requirements.txt .
+RUN pip install -r requirements.txt
+RUN pip install gunicorn
+
+ADD prediction_service .
+
+CMD ["gunicorn", "-b", "127.0.0.1:8080", "prediction_service.app:create_app()"]
+
