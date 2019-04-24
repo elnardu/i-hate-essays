@@ -24,12 +24,6 @@ export default {
   Logout(){
 
   },
-  Home(){
-
-  },
-  Docs(){
-
-  }
 };
 </script>
 
@@ -56,6 +50,7 @@ nav li:hover, nav li:active{
   text-decoration-color: white;
   cursor: pointer;
   transform: scale(1.05);
+  transition-duration: 0.5s;
 }
 
 

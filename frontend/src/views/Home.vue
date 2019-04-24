@@ -1,19 +1,32 @@
 <template>
   <div class="home">
     <h1>What is I Hate Essays</h1>
-    <p>Writing essays is often a difficult and excruciating process. I Hate Essays is an application designed to alleviate
+    <!-- <p>Writing essays is often a difficult and excruciating process. I Hate Essays is an application designed to alleviate
       some of the stress and boredom that comes with writing. Our application provides a smart autocomplete to help 
       write long and unnecessary sentences in order to increase word count. Simply edit and store your documents with our
       smart autocomplete service for an easy and effective writing experience.
-    </p>
-    
-    <figure class="figure">
-    <img alt="Writers block" src="../assets/writers-block-eraser.jpg">
-    <figcaption class="figure-caption text-right">This tool is supposed to help people like me, 
-    who often get stuck while writing an essay by providing smart autocomplete. It is also supposed to help 
-    writing long and unnecessary sentences in order to increase the word count.</figcaption>
-    </figure>
+    </p> -->
 
+    <!-- <div class="clearfix">
+      <img src="../assets/writers-block-eraser.jpg" alt="d" class="float-left">
+      <p>Writing essays is often a difficult and excruciating process. <b>I Hate Essays</b> is an application designed to alleviate
+      some of the stress and boredom that comes with writing. Our application provides a smart autocomplete to help 
+      write long and unnecessary sentences in order to increase word count. Simply edit and store your documents with our
+      smart autocomplete service for an easy and effective writing experience.
+      </p>
+    </div> -->
+    
+    <div> 
+      <p id="intro" style="float: right;"><img src="../assets/writers-block-eraser.jpg" id="firstImage" width="80%"></p>
+      <p>Writing essays is a difficult and often excruciating process. <b>I Hate Essays</b> is an application designed to alleviate
+      some of the stress and boredom that comes with writing.<br><br>Our application provides a smart autocomplete to help 
+      write long and unnecessary sentences in order to increase word count.<br><br>Simply edit and store your documents with our
+      smart autocomplete service for an easy and effective writing experience.
+      </p>
+    </div>
+
+
+    <br>
     <h1>Screenshots</h1>
     <div class="row">
       <div class="column">
@@ -25,9 +38,7 @@
     </div>
 
 
-    <h1>The Team</h1>
-    <!-- <h3>Elnard Utuishev</h3>
-    <img alt="Elnard pic" src="../assets/logo.png">-->
+    <br><h1>Meet the Team</h1>
     <div>
       <p style="float: left;"><img src="../assets/logo.png" height="200px" width="200px" id="profilepic" border="1px"></p>
       <a href="https://github.com/elnardu/" id="names">Elnard Utiushev</a>
@@ -42,21 +53,17 @@
     <div>
       <p style="float: left;"><img src="../assets/meSmall.png" height="200px" width="200px" id="profilepic" border="1px"></p>
       <a href="https://github.com/lukegregurich" id="names" >Luke Gregurich</a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dictum massa. Aenean a ex ipsum. Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit. Cras suscipit volutpat ipsum vel maximus. Aenean tempor, neque a luctus tincidunt, mauris leo finibus 
-        massa, vel mattis magna ligula sed risus. Pellentesque rutrum, arcu et dapibus sagittis, turpis orci sollicitudin massa, a feugiat 
-        justo mi a odio. Donec convallis neque ac ipsum vestibulum, quis rutrum mauris fermentum. Nunc rutrum mi magna, a tristique arcu porta 
-        et. Suspendisse potenti. Duis consequat sodales nisi sit amet maximus. Quisque velit sem, egestas vitae porttitor non, porttitor nec 
-        purus. Ut eget dictum orci. Pellentesque commodo imperdiet mattis.</p>
+      <p>Luke Gregurich is an undergraduate student at Purdue University, majoring in Computer Science, minoring in  Earth, Atmospheric, 
+        and Planetary Sciences, with a Certificate in Entrepreneurship.<br><br>Luke is one of the developers of the <b>I Hate Essays</b> application
+        for Purdue's CS252 class. During the summer, Luke plans to study GIS technology and research semiconductors at Denmark Technical University.
+        Luke enjoys the Game of Thrones television series and playing Queen's "Bomehian Rhapsody" on public pianos.
+      </p>
     </div>
 
     <h1>The History of I Hate Essays</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dictum massa. Aenean a ex ipsum. Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit. Cras suscipit volutpat ipsum vel maximus. Aenean tempor, neque a luctus tincidunt, mauris leo finibus 
-        massa, vel mattis magna ligula sed risus. Pellentesque rutrum, arcu et dapibus sagittis, turpis orci sollicitudin massa, a feugiat 
-        justo mi a odio. Donec convallis neque ac ipsum vestibulum, quis rutrum mauris fermentum. Nunc rutrum mi magna, a tristique arcu porta 
-        et. Suspendisse potenti. Duis consequat sodales nisi sit amet maximus. Quisque velit sem, egestas vitae porttitor non, porttitor nec 
-        purus. Ut eget dictum orci. Pellentesque commodo imperdiet mattis.</p>
+    <p>As a computer science student at Purdue University, <b>I Hate Essays</b> was first thought </p>
+
+
 </div>
 
 </template>
@@ -74,10 +81,11 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
+  margin-bottom: 0.03em;
 }
 div {
   padding-top: 50px;
-  padding-right: 30px;
+  padding-right: 50px;
   padding-bottom: 50px;
   padding-left: 80px;
 }
@@ -85,11 +93,7 @@ p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-left: 4.4em;
 }
-/* a:link {
-  color: green; 
-  background-color: transparent; 
-  text-decoration: none;
-} */
+
 a:hover {
   color:violet;
   background-color: transparent;
@@ -113,6 +117,9 @@ a:hover {
   /* padding-right: 1.3em;
   padding-bottom: 1.3em; */
   
+}
+#intro {
+  font-size:20px
 }
 
 .column {
