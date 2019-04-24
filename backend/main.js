@@ -6,6 +6,7 @@ const morgan = require('morgan'),
   io = require('socket.io')(server),
   express = require('express');
 
+const path = require('path');
 require('dotenv').config();
 
 const handleSocketIoConnection = require('./socket_io_handlers');

@@ -13,5 +13,5 @@ RUN pip install gunicorn
 
 ADD prediction_service .
 
-CMD ["gunicorn", "-b", "127.0.0.1:8080", "prediction_service.app:create_app()"]
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "prediction_service.app:create_app()"]
 
