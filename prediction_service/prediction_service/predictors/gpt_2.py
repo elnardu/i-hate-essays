@@ -87,7 +87,7 @@ class GPT2Predictor(Predictor):
 
         generated = 0
         response = []
-        for _ in range(3 // self.batch_size):
+        for _ in range(2 // self.batch_size):
             out = sample_sequence(
                 model=self.model, length=self.length,
                 context=context_tokens,

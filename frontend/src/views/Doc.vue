@@ -59,8 +59,8 @@ export default {
       spellChecker: false
     });
 
-    this.text_changed = debounce(this.text_changed, 250);
-    this.title_changed = debounce(this.title_changed, 250);
+    this.text_changed = debounce(this.text_changed, 5000);
+    this.title_changed = debounce(this.title_changed, 5000);
 
     this.simplemde_obj.codemirror.on("change", this.text_changed);
     this.simplemde_obj.codemirror.on("cursorActivity", this.text_changed);
