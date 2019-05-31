@@ -19,30 +19,30 @@ and unnecessary sentences in order to increase the word count.
 ## TODO
 - Frontend
   - [X] Draft 
-  - [ ] Add proper routes 
-  - [ ] Auth 
-  - [ ] Add docs view (we need this for db req)
+  - [X] Add proper routes 
+  - [X] Auth 
+  - [X] Add docs view (we need this for db req)
   - [ ] Add about view
 - Backend
-  - [ ] Auth (including socket.io)
-  - [ ] User schema
-  - [ ] Doc schema
+  - [X] Auth (including socket.io)
+  - [X] User schema
+  - [X] Doc schema
   - [ ] Docs schema
 - Prediction Service
   - [X] Setup flask
   - [X] Write an interface for prediction modules
-  - [ ] Create an api
+  - [X] Create an api
   - Prediction
-    - [ ] GPT-2 
+    - [X] GPT-2 
     - Markov chain
       - [X] Basic implementation
       - [ ] Find a dataset of books
       - [ ] Find/create a dataset of essays
       - [ ] Cache a markov chain  
 - Other
-  - [ ] Docker and docker-compose setup
+  - [X] Docker and docker-compose setup
   - [ ] Serve static using nginx
-  - [ ] Build frontend in docker
+  - [X] Build frontend in docker
   
 ## Screenshot
 ![](screenshots/screenshot1.png)
