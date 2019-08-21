@@ -10,4 +10,4 @@ regex==2019.4.14
 torch==1.0.1.post2
 tqdm==4.31.1
 Unidecode==1.0.23
-Werkzeug==0.15.2
+Werkzeug==0.15.3
