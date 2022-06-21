@@ -5,7 +5,7 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 markovify==0.7.1
 MarkupSafe==1.1.1
-numpy==1.16.2
+numpy==1.22.0
 regex==2019.4.14
 torch==1.0.1.post2
 tqdm==4.31.1
